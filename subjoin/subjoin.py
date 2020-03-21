@@ -90,12 +90,14 @@ def load_subreddits_from_memory():
         for item in list_of_subreddits:
             print("-" + item)
         join_or_not = input("\nWould you like to join them? "
-                            "(Enter 'y' or 'n')")
+                            "(Enter 'y' or 'n') ")
         if join_or_not == 'y':
             for item in list_of_subreddits:
+                print(f"Joining the subreddit: {item}.")
                 reddit.subreddit(item).subscribe()
+            print('\nFinished joining the subreddits!')
         elif join_or_not == 'n':
-            print("Exiting program.")
+            print("\nExiting the program.")
             sys.exit()
 
 
