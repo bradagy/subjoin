@@ -23,9 +23,6 @@ reddit = praw.Reddit(client_id=CLIENT_ID,
                      user_agent=USERAGENT,
                      username=USERNAME)
 
-user_input = input("Would you like to join the previous subreddit(s) that you were "
-                   "subscribed to? (Enter 'y' or 'n') " )
-
 
 def joining_subreddit():
     """Check if subreddit(s) exists before joining it."""
@@ -49,22 +46,22 @@ def joining_subreddit():
             with open(filename, 'w') as file:
                 json.dump(list_of_subreddits, file)
 
-            if list_of_subreddits:
+            if len(list_of_subreddits) % 3 == 0:
                 print("The current subreddit(s) in your list are:")
                 for sub_reddit in list_of_subreddits:
                     print('-' + sub_reddit)
 
             continue_or_stop = input("\nWould you like to stop "
                                      "the program and join the preferred "
-                                     "subreddits? (Enter 'y' or 'n') ")
-            if continue_or_stop == 'y':
+                                     "subreddits? [Y/n] ")
+            if continue_or_stop in ('Y', 'y'):
                 # Join each subreddit in the list of subreddits.
                 for sub_reddit in list_of_subreddits:
                     reddit.subreddit(sub_reddit).subscribe()
                     print(f"-Joining the subreddit: {sub_reddit}.")
                 print("\nFinished joining the subreddits!")
                 break
-            elif continue_or_stop == 'n':
+            elif continue_or_stop in ('N', 'n'):
                 continue
             else:
                 print("That is not a valid answer. Please try again.")
@@ -90,18 +87,24 @@ def load_subreddits_from_memory():
         for item in list_of_subreddits:
             print("-" + item)
         join_or_not = input("\nWould you like to join them? "
-                            "(Enter 'y' or 'n') ")
-        if join_or_not == 'y':
+                            "[Y/n] ")
+        if join_or_not in ('Y', 'y'):
             for item in list_of_subreddits:
                 print(f"Joining the subreddit: {item}.")
                 reddit.subreddit(item).subscribe()
             print('\nFinished joining the subreddits!')
-        elif join_or_not == 'n':
+        elif join_or_not in ('N', 'n'):
             print("\nExiting the program.")
             sys.exit()
 
 
-if user_input == 'y':
-    load_subreddits_from_memory()
-elif user_input == 'n':
-    joining_subreddit()
+while True:
+    user_input = input("Would you like to join the previous suberddit(s) "
+                       "that you were subscribed to? [Y/n]")
+    if user_input in ('Y', 'y'):
+        load_subreddits_from_memory()
+    elif user_input in ('N', 'n'):
+        joining_subreddit()
+    else:
+        print('That was not a valid answer please try again.')
+    continue
