@@ -41,6 +41,9 @@ def joining_subreddit():
             print("\nThis subreddit does not exist, please try again. \n")
         else:
             list_of_subreddits.append(enter_subreddits)
+            # If the length of the items in list_of_subreddits is divisible
+            # by 3 then print the subreddits within the list.
+            # This will help keep track of what subreddits are being added.
             if len(list_of_subreddits) % 3 == 0:
                 print("The current subreddit(s) in your list are:")
                 for sub_reddit in list_of_subreddits:
@@ -50,11 +53,11 @@ def joining_subreddit():
                                          "the program and join the preferred "
                                          "subreddits? [Y/n] ")
                 if continue_or_stop in ('Y', 'y'):
-                    # Add entered subreddit to the list of subreddits and
-                    # create a JSON file with the list of subreddits.
+                    # Create a JSON file with the list of subreddits.
                     with open(filename, 'w') as file:
                         json.dump(list_of_subreddits, file)
-                    # Join each subreddit in the list of subreddits.
+                    # Join each subreddit in the list of subreddits and
+                    # and the loop.
                     for sub_reddit in list_of_subreddits:
                         reddit.subreddit(sub_reddit).subscribe()
                         print(f"-Joining the subreddit: {sub_reddit}.")
@@ -73,8 +76,9 @@ def load_subreddits_from_memory():
     """
     If the "subreddits.json" file exists, ask the user if they
     would like to join the subreddits within the JSON file.
+    IF the "subreddits.json" file does not exist, create a new JSON file
+    called "subreddits_new.json, so the old json file is not overwritten."
     """
-    filename = 'subreddits.json'
     try:
         with open('subreddits_new.json') as file:
             list_of_subreddits = json.load(file)
