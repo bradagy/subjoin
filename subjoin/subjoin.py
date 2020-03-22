@@ -40,32 +40,31 @@ def joining_subreddit():
             exists = False
             print("\nThis subreddit does not exist, please try again. \n")
         else:
-            # Add entered subreddit to the list of subreddits and create a JSON
-            # file with the list of subreddits.
             list_of_subreddits.append(enter_subreddits)
-            with open(filename, 'w') as file:
-                json.dump(list_of_subreddits, file)
-
             if len(list_of_subreddits) % 3 == 0:
                 print("The current subreddit(s) in your list are:")
                 for sub_reddit in list_of_subreddits:
                     print('-' + sub_reddit)
 
-            continue_or_stop = input("\nWould you like to stop "
-                                     "the program and join the preferred "
-                                     "subreddits? [Y/n] ")
-            if continue_or_stop in ('Y', 'y'):
-                # Join each subreddit in the list of subreddits.
-                for sub_reddit in list_of_subreddits:
-                    reddit.subreddit(sub_reddit).subscribe()
-                    print(f"-Joining the subreddit: {sub_reddit}.")
-                print("\nFinished joining the subreddits!")
-                break
-            elif continue_or_stop in ('N', 'n'):
-                continue
-            else:
-                print("That is not a valid answer. Please try again.")
-                continue
+                continue_or_stop = input("\nWould you like to stop "
+                                         "the program and join the preferred "
+                                         "subreddits? [Y/n] ")
+                if continue_or_stop in ('Y', 'y'):
+                    # Add entered subreddit to the list of subreddits and
+                    # create a JSON file with the list of subreddits.
+                    with open(filename, 'w') as file:
+                        json.dump(list_of_subreddits, file)
+                    # Join each subreddit in the list of subreddits.
+                    for sub_reddit in list_of_subreddits:
+                        reddit.subreddit(sub_reddit).subscribe()
+                        print(f"-Joining the subreddit: {sub_reddit}.")
+                    print("\nFinished joining the subreddits!")
+                    break
+                elif continue_or_stop in ('N', 'n'):
+                    continue
+                else:
+                    print("That is not a valid answer. Please try again.")
+            continue
 
             return exists
 
@@ -77,11 +76,11 @@ def load_subreddits_from_memory():
     """
     filename = 'subreddits.json'
     try:
-        with open(filename) as file:
+        with open('subreddits_new.json') as file:
             list_of_subreddits = json.load(file)
     except FileNotFoundError:
         print("Your subreddit(s) file could not be found. "
-              "Try entering 'n' at the prompt to join subreddit(s).")
+              "Try entering 'n' at the prompt to join subreddit(s).\n")
     else:
         print("\nYour current subreddits are:")
         for item in list_of_subreddits:
@@ -99,12 +98,12 @@ def load_subreddits_from_memory():
 
 
 while True:
-    user_input = input("Would you like to join the previous suberddit(s) "
-                       "that you were subscribed to? [Y/n]")
+    user_input = input("Would you like to join the previous subreddit(s) "
+                       " you were subscribed to? [Y/n] ")
     if user_input in ('Y', 'y'):
         load_subreddits_from_memory()
     elif user_input in ('N', 'n'):
         joining_subreddit()
     else:
         print('That was not a valid answer please try again.')
-    continue
+        continue
