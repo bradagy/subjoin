@@ -101,13 +101,17 @@ def load_subreddits_from_memory():
             sys.exit()
 
 
-while True:
-    user_input = input("Would you like to join the previous subreddit(s) "
-                       " you were subscribed to? [Y/n] ")
-    if user_input in ('Y', 'y'):
-        load_subreddits_from_memory()
-    elif user_input in ('N', 'n'):
-        joining_subreddit()
-    else:
-        print('That was not a valid answer please try again.')
-        continue
+def main():
+    while True:
+        user_input = input("Would you like to join the previous subreddit(s) "
+                           " you were subscribed to? [Y/n] ")
+        if user_input in ('Y', 'y'):
+            load_subreddits_from_memory()
+        elif user_input in ('N', 'n'):
+            joining_subreddit()
+        else:
+            print('That was not a valid answer please try again.')
+            continue
+
+
+main()
