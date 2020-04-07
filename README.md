@@ -14,7 +14,7 @@ script on Reddit.
 - Add a description or leave it blank. 
 
 - In the redirect url, copy and paste this: http://localhost:8080. 
-    - From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html)
+    - From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html):
         "Password Flow is the simplest type of authentication flow to work with because no callback process is involved in obtaining an access_token.
         While password flow applications do not involve a redirect URI, Reddit still requires that you provide one when registering your script application – http://localhost:8080 is a simple one to use."
 
@@ -27,13 +27,13 @@ script on Reddit.
   change the values in the script according to the four pieces of information
   that were given to you when you created the **Script** application.
 
-- From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html)
+- From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html):
     "In order to use a password flow application with PRAW you need four pieces of information:
 
-    client_id:	The client ID is the 14-character string listed just under “personal use script” for the desired developed application
-    client_secret:	The client secret is the 27-character string listed adjacent to secret for the application.
-    password:	The password for the Reddit account used to register the application.
-    username:	The username of the Reddit account used to register the application.
+    - client_id: The client ID is the 14-character string listed just under “personal use script” for the desired developed application
+    - client_secret: The client secret is the 27-character string listed adjacent to secret for the application.
+    - password: The password for the Reddit account used to register the application.
+    - username:	The username of the Reddit account used to register the application.
     With this information authorizing as username using a password flow app is as simple as:
 
     ```python3
