@@ -28,7 +28,7 @@ script on Reddit.
   that were given to you when you created the **Script** application.
 
 - From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html)
-    In order to use a password flow application with PRAW you need four pieces of information:
+    "In order to use a password flow application with PRAW you need four pieces of information:
 
     client_id:	The client ID is the 14-character string listed just under “personal use script” for the desired developed application
     client_secret:	The client secret is the 27-character string listed adjacent to secret for the application.
@@ -46,4 +46,4 @@ script on Reddit.
     To verify that you are authenticated as the correct user run:
 
     print(reddit.user.me())
-    The output should contain the same name as you entered for username.
+    The output should contain the same name as you entered for username."
