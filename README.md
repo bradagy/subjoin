@@ -8,9 +8,10 @@ script on Reddit.
 - Head over to this link: https://www.reddit.com/prefs/apps/
 - Click on the **"Create an application"** button.
 - There will be 3 different options to choose from: 
-    - **Web Application, Installed
-    - Application** 
+    - **Web Application**
+    - **Installed Application**
     - **Script**
+
 - Click on **Script**.
 
 - You can enter any name for the application or just enter **Subjoin** as the name.
