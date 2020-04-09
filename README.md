@@ -56,6 +56,5 @@ script on Reddit.
   subreddits you're subscribing to.
 
 - Once the program finishes joining the subreddits, you
-  will see a `subreddits.json` file. **DO NOT LOSE THIS FILE**. This file will make it easier to join the same
-  subreddits on another account. **You cannot use the same authentication information for different accounts.
-  You will need to follow the Authentication steps listed above for each account.**
+  will see a `subreddits.json` file. **DO NOT LOSE THIS FILE**. This file will make it easier to join the same subreddits on another account. 
+- **You cannot use the same authentication information for different accounts.  You will need to follow the Authentication steps listed above for each account.**
