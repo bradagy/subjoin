@@ -2,7 +2,7 @@
 ![image](https://i.pinimg.com/originals/f9/09/35/f90935f6acfe8bb0170bc7b34020a465.png)
 
 ### Setup
-Before using Subjoin you will need to authenticate via OAuth by registering a
+Before using, Subjoin you will need to authenticate via OAuth by registering a
 script on Reddit.
 
 - Head over to this link: https://www.reddit.com/prefs/apps/
@@ -20,12 +20,15 @@ script on Reddit.
 
 - Click on **Create application.**
 
-
 ### Authentication
-- After completing the steps above, clone this repository. to your computer.
-- Find the file **subjoin.py** in the cloned repository. Follow these steps and
-  change the values in the script according to the four pieces of information
-  that were given to you when you created the **Script** application.
+- After completing the steps above, clone this repository to your computer.
+
+- Change your directory into the subdirectory of the project which is also named **"subjoin**".
+![location](https://imgur.com/GMVUgGp)
+
+- **Do not run the file yet.** There will be a file called `create.secrets.sh`
+- Run this file and enter the information required. This script will create a
+  file called .env which will allow the secrets that were generated in your script application to work correctly with the program.
 
 - From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html):
     "In order to use a password flow application with PRAW you need four pieces of information:
@@ -33,17 +36,22 @@ script on Reddit.
     - client_id: The client ID is the 14-character string listed just under “personal use script” for the desired developed application
     - client_secret: The client secret is the 27-character string listed adjacent to secret for the application.
     - password: The password for the Reddit account used to register the application.
-    - username:	The username of the Reddit account used to register the application.
-    With this information authorizing as username using a password flow app is as simple as:
+    - username:	The username of the Reddit account used to register the application."
 
-    ```python3
-        reddit = praw.Reddit(client_id='<your-client-id>',
-                         client_secret='<your-client_secret>',
-                         password='your-reddit-password',
-                         user_agent='testscript by /u/<your-reddit-username>',
-                         username='<your-reddit-username')
-    ```
-    To verify that you are authenticated as the correct user run:
+- Once this file has been generated, find the file `test_run.sh`(located in the subdirectory of the project) and run it. The output of
+  this program should display your Reddit username. If this works, everything should work correctly.
+- ![location](https://imgur.com/GMVUgGp)
 
-    print(reddit.user.me())
-    The output should contain the same name as you entered for username."
+### Joining Subreddits
+- After completing the steps above, find the `subjoin.py` and run it. It will
+  ask you for the name of the subreddit you would like to join. You can enter as
+  many as you want. For every 3 subreddits that you join, your subscribed list
+  of subreddits will be displayed to you. This will help you keep track of what
+  subreddits you're subscribing to.
+
+- Once you're finished and you the program finishes joining the subreddits, you
+  will see a `subreddits.json` file. **DO NOT LOSE THIS FILE** if you would like
+  to join the same subreddits on another account. This will help subjoin
+  subscribe to the same subreddits if you use another account. **You cannot use
+  the same authentication information for different accounts. You will need to
+  follow the Authentication steps listed above for each account.**
