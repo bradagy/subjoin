@@ -24,7 +24,7 @@ script on Reddit.
 - After completing the steps above, clone this repository to your computer.
 
 - Change your directory into the subdirectory of the project which is also named **"subjoin**".
-![location](https://imgur.com/GMVUgGp)
+[location](https://imgur.com/GMVUgGp)
 
 - **Do not run the file yet.** There will be a file called `create.secrets.sh`
 - Run this file and enter the information required. This script will create a
@@ -40,7 +40,7 @@ script on Reddit.
 
 - Once this file has been generated, find the file `test_run.sh`(located in the subdirectory of the project) and run it. The output of
   this program should display your Reddit username. If this works, everything should work correctly.
-- ![location](https://imgur.com/GMVUgGp)
+- [location](https://imgur.com/GMVUgGp)
 
 ### Joining Subreddits
 - After completing the steps above, find the `subjoin.py` and run it. It will
