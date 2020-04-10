@@ -1,7 +1,7 @@
 # Subjoin
 ![image](https://i.pinimg.com/originals/f9/09/35/f90935f6acfe8bb0170bc7b34020a465.png)
 
-#### Setup
+### Setup
 Before using Subjoin you will need to authenticate via OAuth by registering a
 script on Reddit.
 
@@ -24,7 +24,7 @@ script on Reddit.
 
 - Click on **Create application.**
 
-#### Authentication
+### Authentication
 - After completing the steps above, clone this repository to your computer.
 
 - Change your directory into the subdirectory of the project which is also named **"subjoin**".
@@ -48,7 +48,7 @@ script on Reddit.
 
 ![Imgur](https://i.imgur.com/GMVUgGp.png)
 
-#### Joining Subreddits
+### Joining Subreddits
 - After completing the steps above, find the `subjoin.py` file and run it. The program will
   ask you for the name of the subreddit(s) you would like to join. You can enter as
   many as you wish. For every 3 subreddits that you join, your subscribed list
