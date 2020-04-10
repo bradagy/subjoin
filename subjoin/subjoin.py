@@ -47,7 +47,7 @@ def joining_subreddit():
             if len(list_of_subreddits) % 3 == 0:
                 print("The current subreddit(s) in your list are:")
                 for sub_reddit in list_of_subreddits:
-                    print('-' + sub_reddit)
+                    print(f"-{sub_reddit}")
 
                 continue_or_stop = input("\nWould you like to stop "
                                          "the program and join the preferred "
@@ -88,12 +88,12 @@ def load_subreddits_from_memory():
     else:
         print("\nYour current subreddits are:")
         for item in list_of_subreddits:
-            print("-" + item)
+            print(f"-{item}")
         join_or_not = input("\nWould you like to join them? "
                             "[Y/n] ")
         if join_or_not in ('Y', 'y'):
             for item in list_of_subreddits:
-                print(f"Joining the subreddit: {item}.")
+                print(f"-Joining the subreddit: {item}.")
                 reddit.subreddit(item).subscribe()
             print('\nFinished joining the subreddits!')
         elif join_or_not in ('N', 'n'):
