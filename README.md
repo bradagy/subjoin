@@ -34,6 +34,8 @@ script on Reddit.
 - **Do not run the file yet.** There will be a file called `create_secrets.sh`
 - Run this file and enter the information required. This script will create a
   file called `.env` which will allow the secrets that were generated in your script application to work correctly with the program.
+- Run the command `source .env` which will make the variables inside the `.env`
+  file active within your current shell.
 
 - From [praw-documentation](https://praw.readthedocs.io/en/latest/getting_started/authentication.html):
     "In order to use a password flow application with PRAW you need four pieces of information:
