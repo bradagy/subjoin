@@ -16,12 +16,17 @@ PASSWORD = os.environ.get('PASSWORD')
 USERNAME = os.environ.get('USERNAME')
 USERAGENT = os.environ.get('USERAGENT')
 
-# Authorizing with Praw.
-reddit = praw.Reddit(client_id=CLIENT_ID,
-                     client_secret=CLIENT_SECRET,
-                     password=PASSWORD,
-                     user_agent=USERAGENT,
-                     username=USERNAME)
+
+def login():
+    """Authorizing with Praw."""
+    return praw.Reddit(client_id=CLIENT_ID,
+                       client_secret=CLIENT_SECRET,
+                       password=PASSWORD,
+                       user_agent=USERAGENT,
+                       username=USERNAME)
+
+
+reddit = login()
 
 
 def joining_subreddit():
@@ -73,14 +78,13 @@ def joining_subreddit():
 
 
 def load_subreddits_from_memory():
-    """
-    If the "subreddits.json" file exists, ask the user if they
-    would like to join the subreddits within the JSON file.
-    IF the "subreddits.json" file does not exist, create a new JSON file
-    called "subreddits_new.json, so the old json file is not overwritten."
+    """If subreddits.json file exists, ask the user if they would like to join
+    it (join subreddits if the answer is "yes".). If the user
+    refuses, exit the program.
+
     """
     try:
-        with open('subreddits_new.json') as file:
+        with open('subreddits.json') as file:
             list_of_subreddits = json.load(file)
     except FileNotFoundError:
         print("Your subreddit(s) file could not be found. "
@@ -114,4 +118,5 @@ def main():
             continue
 
 
-main()
+if __name__ == '__main__':
+    main()
