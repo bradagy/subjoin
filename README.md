@@ -45,7 +45,7 @@ script on Reddit.
     - password: The password for the Reddit account used to register the application.
     - username:	The username of the Reddit account used to register the application."
 
-- Once this file has been generated, find the file `test_run.sh`** (located in the subdirectory of the project)** and run it. The output of
+- Once this file has been generated, find the file `test_run.sh` **(located in the subdirectory of the project)** and run it. The output of
   this program should display your Reddit username. If this works, everything should work correctly.
 
 ![Imgur](https://i.imgur.com/GMVUgGp.png)
