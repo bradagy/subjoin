@@ -26,6 +26,11 @@ script on Reddit.
 
 ### Authentication
 - After completing the steps above, clone this repository to your computer.
+- Create a virtual environment with the command `python3 -m venv venv` in the
+  subdirectory of the project.
+- Change your directory back to the root directory of the project and run the
+  command `pip3 install -r requirements.txt` to install the necessary Python
+  modules.
 
 - Change your directory into the subdirectory of the project which is also named **"subjoin**".
 
