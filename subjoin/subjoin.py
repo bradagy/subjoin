@@ -60,7 +60,7 @@ def joining_subreddit():
                 if continue_or_stop in ('Y', 'y'):
                     # Create a JSON file with the list of subreddits.
                     with open(filename, 'w') as file:
-                        json.dump(list_of_subreddits, file)
+                        json.dump(list_of_subreddits, file, indent=4)
                     # Join each subreddit in the list of subreddits and
                     # and the loop.
                     for sub_reddit in list_of_subreddits:
