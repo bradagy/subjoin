@@ -28,7 +28,6 @@ reddit = login()
 
 
 def joining_subreddit():
-    """Check if subreddit(s) exists before joining it."""
     list_of_subreddits = []
     filename = 'subreddits.json'
 
