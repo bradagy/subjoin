@@ -9,7 +9,6 @@ import praw
 from prawcore import NotFound
 
 
-# Accessing secret environment variables.
 CLIENT_ID = os.environ.get('CLIENT_ID')
 CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 PASSWORD = os.environ.get('PASSWORD')
@@ -18,7 +17,6 @@ USERAGENT = os.environ.get('USERAGENT')
 
 
 def login():
-    """Authorizing with Praw."""
     return praw.Reddit(client_id=CLIENT_ID,
                        client_secret=CLIENT_SECRET,
                        password=PASSWORD,
@@ -36,7 +34,6 @@ def joining_subreddit():
 
     while True:
         exists = True
-        # Checking to see if entered subreddit exists.
         try:
             enter_subreddits = input("\nEnter the name(s) of the subreddit(s) "
                                      "you would like to join: ")
@@ -46,8 +43,6 @@ def joining_subreddit():
             print("\nThis subreddit does not exist, please try again. \n")
         else:
             list_of_subreddits.append(enter_subreddits)
-            # If the length of the items in list_of_subreddits is divisible
-            # by 3 then print the subreddits within the list.
             # This will help keep track of what subreddits are being added.
             if len(list_of_subreddits) % 3 == 0:
                 print("The current subreddit(s) in your list are:")
@@ -58,11 +53,8 @@ def joining_subreddit():
                                          "the program and join the preferred "
                                          "subreddits? [Y/n] ")
                 if continue_or_stop in ('Y', 'y'):
-                    # Create a JSON file with the list of subreddits.
                     with open(filename, 'w') as file:
                         json.dump(list_of_subreddits, file, indent=4)
-                    # Join each subreddit in the list of subreddits and
-                    # and the loop.
                     for sub_reddit in list_of_subreddits:
                         reddit.subreddit(sub_reddit).subscribe()
                         print(f"-Joining the subreddit: {sub_reddit}.")
@@ -80,9 +72,7 @@ def joining_subreddit():
 def load_subreddits_from_memory():
     """If subreddits.json file exists, ask the user if they would like to join
     it (join subreddits if the answer is "yes".). If the user
-    refuses, exit the program.
-
-    """
+    refuses, exit the program."""
     try:
         with open('subreddits.json') as file:
             list_of_subreddits = json.load(file)
